@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Solo Cajas — cajas para embalaje, envíos, mudanzas y emprendimientos. Elegí tu caja y pedí presupuesto.">
+  <title>Solo Cajas | Cajas para todo</title>
+  <style>
+    :root{
+      --ink:#29251f;
+      --brown:#4a3829;
+      --terra:#b85f3d;
+      --cream:#f6f1e9;
+      --paper:#fffdf9;
+      --line:#e7ded2;
+      --muted:#756d64;
+      --shadow:0 18px 45px rgba(54,42,30,.10);
+      --radius:22px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--ink);background:var(--paper);line-height:1.5
+    }
+    a{text-decoration:none;color:inherit}
+    .wrap{width:min(1120px,92%);margin:auto}
+    header{
+      position:sticky;top:0;z-index:20;background:rgba(255,253,249,.94);
+      backdrop-filter:blur(12px);border-bottom:1px solid var(--line)
+    }
+    nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:20px}
+    .brand img{width:48px;height:48px;object-fit:contain;border-radius:12px}
+    .links{display:flex;gap:26px;align-items:center;font-size:14px;font-weight:650}
+    .links a:hover{color:var(--terra)}
+    .menu{display:none;border:0;background:none;font-size:25px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:13px 19px;border-radius:999px;background:var(--brown);color:white;font-weight:750;
+      border:1px solid var(--brown);transition:.2s
+    }
+    .btn:hover{transform:translateY(-2px);background:#34271e}
+    .btn.alt{background:transparent;color:var(--brown)}
+    .hero{padding:78px 0 62px;background:var(--cream);overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:55px;align-items:center}
+    .eyebrow{color:var(--terra);font-size:13px;text-transform:uppercase;letter-spacing:.16em;font-weight:850}
+    h1{font-size:clamp(44px,6vw,74px);line-height:.98;margin:13px 0 20px;letter-spacing:-.055em}
+    h1 span{color:var(--terra)}
+    .lead{font-size:19px;color:var(--muted);max-width:600px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .hero-card{
+      background:white;border:1px solid var(--line);border-radius:32px;padding:35px;
+      box-shadow:var(--shadow);transform:rotate(1.2deg)
+    }
+    .hero-card img{width:100%;display:block;max-height:330px;object-fit:contain}
+    .section{padding:78px 0}
+    .section.alt{background:#fbf8f3}
+    .title{text-align:center;max-width:650px;margin:0 auto 42px}
+    .title h2{font-size:clamp(31px,4vw,46px);margin:8px 0 10px;letter-spacing:-.04em}
+    .title p{color:var(--muted);margin:0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{
+      background:white;border:1px solid var(--line);border-radius:var(--radius);padding:27px;
+      box-shadow:0 8px 25px rgba(54,42,30,.05)
+    }
+    .icon{
+      width:50px;height:50px;border-radius:15px;background:#f0e4d8;display:grid;place-items:center;
+      font-size:25px;margin-bottom:18px
+    }
+    .card h3{margin:0 0 8px;font-size:20px}.card p{color:var(--muted);margin:0}
+    .products{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .product{padding:22px;background:white;border:1px solid var(--line);border-radius:20px}
+    .box-art{height:125px;border-radius:16px;background:#f1e8dd;display:grid;place-items:center;font-size:58px;margin-bottom:17px}
+    .product h3{margin:0 0 4px}.product p{margin:0 0 14px;color:var(--muted);font-size:14px}
+    .mini{font-size:13px;font-weight:800;color:var(--terra)}
+    .banner{
+      background:var(--brown);color:white;border-radius:30px;padding:42px;
+      display:flex;align-items:center;justify-content:space-between;gap:30px
+    }
+    .banner h2{font-size:34px;margin:0 0 8px;letter-spacing:-.035em}
+    .banner p{margin:0;color:#e7ddd3}
+    .banner .btn{background:var(--terra);border-color:var(--terra)}
+    .steps{counter-reset:step}
+    .step{position:relative;padding-left:70px}.step:before{
+      counter-increment:step;content:counter(step);position:absolute;left:0;top:0;width:48px;height:48px;
+      display:grid;place-items:center;border-radius:50%;background:var(--terra);color:white;font-weight:850
+    }
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .contact-box{background:var(--cream);padding:32px;border-radius:25px}
+    form{display:grid;gap:12px}
+    input,textarea,select{
+      width:100%;border:1px solid var(--line);border-radius:14px;padding:14px 15px;
+      background:white;font:inherit;color:var(--ink);outline:none
+    }
+    textarea{min-height:120px;resize:vertical}
+    footer{background:#211d19;color:#eee7df;padding:42px 0 25px}
+    .footer-grid{display:flex;justify-content:space-between;gap:30px;align-items:flex-start}
+    .socials{display:flex;gap:10px;flex-wrap:wrap}
+    .socials a{border:1px solid #514941;border-radius:999px;padding:9px 13px;font-size:13px}
+    .copy{border-top:1px solid #403a34;margin-top:30px;padding-top:18px;color:#aaa198;font-size:13px}
+    @media(max-width:850px){
+      .links{display:none}.menu{display:block}.hero-grid,.contact{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}.products{grid-template-columns:repeat(2,1fr)}
+      .banner,.footer-grid{flex-direction:column;align-items:flex-start}
+    }
+    @media(max-width:520px){
+      nav{height:68px}.brand img{width:42px;height:42px}
+      .hero{padding:55px 0 40px}.hero-card{padding:20px}
+      .products{grid-template-columns:1fr}.section{padding:58px 0}
+      .banner{padding:30px 24px}.banner h2{font-size:28px}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#inicio"><img src="logo.png" alt="Solo Cajas"><span>solo cajas</span></a>
+      <div class="links">
+        <a href="#cajas">Cajas</a><a href="#nosotros">Nosotros</a><a href="#como">Cómo comprar</a><a href="#contacto">Contacto</a>
+        <a class="btn" href="#contacto">Pedir presupuesto</a>
+      </div>
+      <button class="menu" aria-label="Abrir menú">☰</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section id="inicio" class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Cajas. Nada más. Y nada menos.</div>
+      <h1>La caja que necesitás, <span>la tenemos.</span></h1>
+      <p class="lead">Cajas para embalaje, envíos, almacenamiento, regalos, Navidad, comercios y mucho más. Si necesitás una caja, preguntanos: trabajamos distintos tipos, formatos y medidas.</p>
+      <div class="actions">
+        <a class="btn" href="#cajas">Ver cajas</a>
+        <a class="btn alt" href="#contacto">Quiero hacer una consulta</a>
+      </div>
+    </div>
+    <div class="hero-card"><img src="logo.png" alt="Logo Solo Cajas"></div>
+  </div>
+</section>
+
+<section id="cajas" class="section">
+  <div class="wrap">
+    <div class="title">
+      <div class="eyebrow">Nuestra variedad</div>
+      <h2>Cajas para cada necesidad</h2>
+      <p>Trabajamos distintos formatos de cajas para embalaje, almacenamiento, regalos y fechas especiales.</p>
+    </div>
+    <div class="products">
+      <article class="product"><div class="box-art">📦</div><h3>Cajas de embalaje</h3><p>Prácticas y resistentes para envíos, mudanzas y protección de productos.</p><div class="mini">CONSULTAR →</div></article>
+      <article class="product"><div class="box-art">🎄</div><h3>Cajas navideñas</h3><p>Opciones especiales para regalos, canastas y presentaciones de Navidad.</p><div class="mini">CONSULTAR →</div></article>
+      <article class="product"><div class="box-art">🗂️</div><h3>Cajas de archivo</h3><p>Para organizar, guardar y transportar documentación y objetos.</p><div class="mini">CONSULTAR →</div></article>
+      <article class="product"><div class="box-art">🎁</div><h3>Cajas para regalos</h3><p>Presentaciones para productos, regalos y ocasiones especiales.</p><div class="mini">CONSULTAR →</div></article>
+      <article class="product"><div class="box-art">📐</div><h3>Cajas a medida</h3><p>Formatos pensados para adaptarse a lo que necesitás embalar o presentar.</p><div class="mini">PEDIR MEDIDA →</div></article>
+      <article class="product"><div class="box-art">🔲</div><h3>Cajas troqueladas</h3><p>Diseños especiales y diferentes sistemas de cierre para una presentación distinta.</p><div class="mini">CONSULTAR →</div></article>
+      <article class="product"><div class="box-art">↕️</div><h3>Cajas telescópicas</h3><p>Formatos de varias piezas que permiten ajustar una parte sobre otra.</p><div class="mini">CONSULTAR →</div></article>
+      <article class="product"><div class="box-art">✨</div><h3>Cajas especiales</h3><p>¿Buscás otro tipo? Contanos qué necesitás. En Solo Cajas tenemos más opciones.</p><div class="mini">HABLAR CON NOSOTROS →</div></article>
+    </div>
+  </div>
+</section>
+
+<section id="nosotros" class="section alt">
+  <div class="wrap">
+    <div class="title">
+      <div class="eyebrow">¿Por qué Solo Cajas?</div>
+      <h2>Vendemos cajas. Pero queremos que comprar sea fácil.</h2>
+      <p>Una marca cercana, clara y práctica, pensada para personas y negocios que necesitan cajas sin complicarse.</p>
+    </div>
+    <div class="grid">
+      <article class="card"><div class="icon">✓</div><h3>Fácil de elegir</h3><p>Medidas, usos y cantidades claras para encontrar la caja correcta.</p></article>
+      <article class="card"><div class="icon">⚡</div><h3>Respuesta rápida</h3><p>Consultanos por WhatsApp y te ayudamos a definir qué necesitás.</p></article>
+      <article class="card"><div class="icon">♡</div><h3>Para todos</h3><p>Desde una caja para tu casa hasta pedidos para tu emprendimiento.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="como" class="section">
+  <div class="wrap">
+    <div class="title"><div class="eyebrow">Así de simple</div><h2>Comprá tus cajas en 3 pasos</h2></div>
+    <div class="grid steps">
+      <article class="card step"><h3>Elegí tus cajas</h3><p>Contanos qué tipo, tamaño y cantidad estás buscando.</p></article>
+      <article class="card step"><h3>Pedí tu presupuesto</h3><p>Te respondemos con disponibilidad, precio y opciones.</p></article>
+      <article class="card step"><h3>Recibí tu pedido</h3><p>Coordinamos entrega o retiro según tu zona y necesidad.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="banner">
+      <div><h2>¿Necesitás una caja que no aparece?</h2><p>Consultanos. En Solo Cajas vendemos cajas de todo tipo y podemos ayudarte a encontrar la que necesitás.</p></div>
+      <a class="btn" href="#contacto">Quiero un presupuesto</a>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="section alt">
+  <div class="wrap">
+    <div class="title"><div class="eyebrow">Hablemos</div><h2>Contanos qué cajas necesitás</h2><p>Este formulario queda listo para conectar después con WhatsApp, correo o tu sistema de pedidos.</p></div>
+    <div class="contact">
+      <div class="contact-box">
+        <h3>Contacto directo</h3>
+        <p>📱 WhatsApp: <strong>+54 9 11 0000-0000</strong></p>
+        <p>✉️ Email: <strong>hola@solocajas.com</strong></p>
+        <p>📍 Entregas y retiros: agregá acá tu zona.</p>
+        <a class="btn" href="https://wa.me/5491100000000" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+      </div>
+      <div class="contact-box">
+        <form onsubmit="sendWhatsApp(event)">
+          <input id="name" placeholder="Tu nombre" required>
+          <select id="type"><option value="">¿Qué tipo de cajas buscás?</option><option>Envíos</option><option>Chicas</option><option>Medianas</option><option>Grandes</option><option>Otro</option></select>
+          <input id="qty" placeholder="Cantidad aproximada">
+          <textarea id="msg" placeholder="Contanos un poco más..."></textarea>
+          <button class="btn" type="submit">Enviar consulta</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div><strong style="font-size:22px">solo cajas</strong><p style="color:#aaa198">Cajas para cada ocasión. Solo cajas.</p></div>
+      <div>
+        <div style="font-weight:750;margin-bottom:10px">Seguinos</div>
+        <div class="socials">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="Facebook">Facebook</a>
+          <a href="#" aria-label="TikTok">TikTok</a>
+        </div>
+      </div>
+    </div>
+    <div class="copy">© 2026 Solo Cajas · Todos los derechos reservados.</div>
+  </div>
+</footer>
+
+<script>
+function sendWhatsApp(e){
+  e.preventDefault();
+  const name=document.getElementById('name').value;
+  const type=document.getElementById('type').value || 'cajas';
+  const qty=document.getElementById('qty').value || 'no especificada';
+  const msg=document.getElementById('msg').value || '';
+  const text=`Hola, soy ${name}. Quiero consultar por ${type}. Cantidad aproximada: ${qty}. ${msg}`;
+  window.open('https://wa.me/5491100000000?text='+encodeURIComponent(text),'_blank');
+}
+</script>
+</body>
+</html>
